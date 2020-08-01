@@ -3,7 +3,12 @@
 
 <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
 
-<i class="far fa-heart"></i>
-
-<%= link_to "put in your favourites", spot_favourites_path(@spot), method: :post %>
-
+<% if @my_favourite %>
+  <%= link_to favourite_path(@my_favourite), method: :delete do %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to spot_favourites_path(@spot), method: :post do %>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>

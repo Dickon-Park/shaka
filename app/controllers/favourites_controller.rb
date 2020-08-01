@@ -16,6 +16,8 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
+    @favourite = Favourite.find(params[:id])
     @favourite.destroy
+    redirect_to @favourite.spot, notice: 'Spot deleted from your favourites'
   end
 end
