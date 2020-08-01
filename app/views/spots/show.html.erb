@@ -1,0 +1,9 @@
+<h1> checkout the spot </h1>
+<h2> <%= @spot.name %> </h2>
+
+<p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
+
+<i class="far fa-heart"></i>
+
+<%= link_to "put in your favourites", spot_favourites_path(@spot), method: :post %>
+

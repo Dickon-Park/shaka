@@ -43,6 +43,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:name, :longitude, :latitude, :description, :skill_level, :disciplines).merge(user: current_user)
+    params.require(:spot).permit(:name, :longitude, :latitude, :description, :skill_level, :disciplines)
   end
 end
