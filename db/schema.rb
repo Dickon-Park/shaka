@@ -11,10 +11,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_08_01_100810) do
 =======
 ActiveRecord::Schema.define(version: 2020_08_01_100454) do
 >>>>>>> 43f268b989acd86e815589b613a95826ee67c706
+=======
+ActiveRecord::Schema.define(version: 2020_08_01_100810) do
+ActiveRecord::Schema.define(version: 2020_08_01_100454) do
+>>>>>>> a2621ccab398cdcc6da1206903dd298550994795
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,16 +36,24 @@ ActiveRecord::Schema.define(version: 2020_08_01_100454) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   create_table "favourites", force: :cascade do |t|
 =======
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "message"
 >>>>>>> 43f268b989acd86e815589b613a95826ee67c706
+=======
+  create_table "favourites", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "message"
+>>>>>>> a2621ccab398cdcc6da1206903dd298550994795
     t.bigint "spot_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
 <<<<<<< HEAD
     t.index ["spot_id"], name: "index_favourites_on_spot_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
@@ -48,6 +61,13 @@ ActiveRecord::Schema.define(version: 2020_08_01_100454) do
     t.index ["spot_id"], name: "index_reviews_on_spot_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
 >>>>>>> 43f268b989acd86e815589b613a95826ee67c706
+=======
+    t.index ["spot_id"], name: "index_favourites_on_spot_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+
+    t.index ["spot_id"], name: "index_reviews_on_spot_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+>>>>>>> a2621ccab398cdcc6da1206903dd298550994795
   end
 
   create_table "spots", force: :cascade do |t|
@@ -79,10 +99,17 @@ ActiveRecord::Schema.define(version: 2020_08_01_100454) do
 
   add_foreign_key "amenities", "spots"
 <<<<<<< HEAD
+<<<<<<< HEAD
   add_foreign_key "favourites", "spots"
   add_foreign_key "favourites", "users"
 =======
   add_foreign_key "reviews", "spots"
   add_foreign_key "reviews", "users"
 >>>>>>> 43f268b989acd86e815589b613a95826ee67c706
+=======
+  add_foreign_key "favourites", "spots"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "reviews", "spots"
+  add_foreign_key "reviews", "users"
+>>>>>>> a2621ccab398cdcc6da1206903dd298550994795
 end
