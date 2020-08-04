@@ -16,10 +16,19 @@
   <% end %>
 <% end %>
 
-<ul class="list-group">
-  <% @spot.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+<h2>
+  <%= pluralize @spot.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @spot.reviews.blank? %>
+    Be the first to leave a review for <%= @spot.name %>
+  <% else %>
+    <% @spot.reviews.each do |review| %>
+      <p><%= review.message %></p>
+    <% end %>
   <% end %>
+</div>
 
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %> |
