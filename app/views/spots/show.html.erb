@@ -15,3 +15,12 @@
     <i class="far fa-heart"></i>
   <% end %>
 <% end %>
+
+<ul class="list-group">
+  <% @spot.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+
+<%= link_to 'Edit', edit_spot_path(@spot) %> |
+<%= link_to 'Back', spots_path %> |
+<%= link_to 'Leave a review', new_spot_review_path(@spot) %>
