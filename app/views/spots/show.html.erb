@@ -1,4 +1,7 @@
 <h1> checkout the spot </h1>
+<% @spot.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <h2> <%= @spot.name %> </h2>
 
 <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
