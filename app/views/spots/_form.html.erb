@@ -6,6 +6,7 @@
     <%= f.input :skill_level %>
     <%= f.input :disciplines %>
     <%= f.input :description %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit %>
   <% end %>
 </div>
