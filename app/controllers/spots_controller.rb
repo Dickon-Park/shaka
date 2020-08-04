@@ -22,6 +22,7 @@ class SpotsController < ApplicationController
         # Find my favourites
         @my_favourite = current_user.favourites.find_by(spot: @spot)
         # I'd like to find the favourite for a specific spot in my favourites
+        @review = Review.new
     end
    
     def edit

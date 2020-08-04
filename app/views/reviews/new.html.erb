@@ -1,6 +1,6 @@
 <!-- app/views/reviews/new.html.erb -->
 <%= simple_form_for [ @spot, @review ] do |f| %>
-  <%= f.input :rating %>
+  <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
   <%= f.input :message %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>

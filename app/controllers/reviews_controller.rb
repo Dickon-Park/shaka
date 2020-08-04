@@ -1,7 +1,5 @@
 class ReviewsController < ApplicationController
     def new
-        @spot = Spot.find(params[:spot_id])
-        @review = Review.new
     end
 
     def create
