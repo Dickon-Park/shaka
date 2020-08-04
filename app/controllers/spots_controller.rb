@@ -34,7 +34,7 @@ class SpotsController < ApplicationController
     end
 
     def destroy 
-        @spot = Spot.destroy 
+        @spot = Spot.destroy
 
         redirect_to spots_path
     end
@@ -46,6 +46,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:name, :longitude, :latitude, :description, :skill_level, :disciplines)
+    params.require(:spot).permit(:name, :longitude, :latitude, :description, :skill_level, :disciplines, photos: [])
   end
 end
