@@ -25,6 +25,9 @@
     Be the first to leave a review for <%= @spot.name %>
   <% else %>
     <% @spot.reviews.each do |review| %>
+      <% review.rating.to_i.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %>
       <p><%= review.message %></p>
     <% end %>
   <% end %>
