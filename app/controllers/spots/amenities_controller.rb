@@ -1,4 +1,4 @@
-class AmenitiesController < ApplicationController
+class Spots::AmenitiesController < ApplicationController
   def create
     @amenity = Amenity.new(amenity_params)
   end
