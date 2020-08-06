@@ -1,1 +1,9 @@
+
+<h1>Spots</h1>
+
+<ul>
+  <% @spots.each do |spot| %>
+    <li><%= link_to spot.name, spot_path(spot) %></li>
+  <% end %>
+</ul>
 <h1>Map to go on this page!</h1>

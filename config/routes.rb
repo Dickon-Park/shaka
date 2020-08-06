@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :amenities, module: :spots, only: [ :create, :update ]
   end
   resources :favourites, only: [ :destroy ]
+  resources :reviews, only: [ :destroy ]
 end
