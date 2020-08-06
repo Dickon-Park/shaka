@@ -23,6 +23,8 @@ class SpotsController < ApplicationController
         @my_favourite = current_user.favourites.find_by(spot: @spot)
         # I'd like to find the favourite for a specific spot in my favourites
         @review = Review.new
+        @amenity = Amenity.new
+
     end
    
     def edit
@@ -47,6 +49,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:name, :longitude, :latitude, :description, :skill_level, :disciplines, photos: [])
+    params.require(:spot).permit(:name, :address, :longitude, :latitude, :description, :skill_level, :disciplines, photos: [])
   end
 end
