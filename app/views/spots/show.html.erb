@@ -16,6 +16,10 @@
       <i class="far fa-heart"></i>
     <% end %>
   <% end %>
+  <div class="spot-links">
+    <%= link_to 'Edit', edit_spot_path(@spot) %> |
+    <%= link_to 'Back', spots_path %>
+  </div>
 
   <h2>
     <%= pluralize @spot.reviews.size, "review" %>
@@ -45,9 +49,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="spots-links">
-    <%= link_to 'Edit', edit_spot_path(@spot) %> |
-    <%= link_to 'Back', spots_path %> |
   </div>
 </div>

@@ -6,5 +6,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  #validates :first_name, :last_name, :discipline, :skill_level, presence: true
 end
