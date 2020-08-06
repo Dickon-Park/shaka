@@ -1,0 +1,9 @@
+<div class="amenity-form">
+  <%= simple_form_for( [  spot, amenity ] ) do |f| %>
+    <%= f.input :category %>
+    <%= f.input :address %>
+    <%= f.input :descripton %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,6 +1,10 @@
 class Spots::AmenitiesController < ApplicationController
+  
+  
   def create
     @amenity = Amenity.new(amenity_params)
+    @spot = Spot.find(params[:spot_id])
+    
   end
 
   def update
@@ -11,7 +15,7 @@ class Spots::AmenitiesController < ApplicationController
   private
 
   def amenity_params
-    params.require(:amenity).permit(:category, :description, :longitude, :latitude, status: 'updated')
+    params.require(:amenity).permit(:category, :description, :address)
 
   end
 

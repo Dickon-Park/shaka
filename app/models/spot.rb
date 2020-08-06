@@ -3,5 +3,5 @@ class Spot < ApplicationRecord
     has_many :amenities
     has_many :reviews, dependent: :destroy
     validates :name, presence: true, uniqueness: true
-    validates :longitude, :latitude, :skill_level, :disciplines, presence: true
+    validates  :address, :longitude, :latitude, :skill_level, :disciplines, presence: true
 end

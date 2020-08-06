@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :spots do
     resources :favourites, only: [ :new, :create ]
     resources :reviews, only: [ :new, :create ]
-    resources :amenities, module: :spots, only: [ :create, :update ]
+    resources :amenities, module: :spots, only: [ :index, :create, :update ]
   end
   resources :favourites, only: [ :destroy ]
   resources :reviews, only: [ :destroy ]
