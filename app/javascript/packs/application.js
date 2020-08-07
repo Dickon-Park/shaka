@@ -24,7 +24,10 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
+import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
@@ -34,4 +37,6 @@ initStarRating();
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initMapbox();
+
 });

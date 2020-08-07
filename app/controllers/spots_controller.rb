@@ -2,7 +2,15 @@ class SpotsController < ApplicationController
     before_action :set_spot, only: [ :show, :edit, :update, :destroy ]
 
     def index
-        @spots = Spot.all
+        # @spots = Spot.all
+        @spots = Spot.geocoded # returns spots with coordinates
+
+        @markers = @spots.map do |spot|
+        {
+            lat: spot.latitude,
+            lng: spot.longitude
+        }
+        end
     end
 
     def new
@@ -52,3 +60,4 @@ class SpotsController < ApplicationController
     params.require(:spot).permit(:name, :address, :longitude, :latitude, :description, :skill_level, :disciplines, photos: [])
   end
 end
+
