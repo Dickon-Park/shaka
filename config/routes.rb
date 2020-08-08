@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   resources :favourites, only: [ :destroy ]
   resources :reviews, only: [ :destroy ]
+  resources :users, only: :show
 end

@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_170324) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.float "longitude"
-    t.float "latitude"
+    t.string "longitude"
+    t.string "latitude"
     t.string "skill_level"
     t.string "disciplines"
     t.text "description"
