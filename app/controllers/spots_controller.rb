@@ -32,7 +32,6 @@ class SpotsController < ApplicationController
         # I'd like to find the favourite for a specific spot in my favourites
         @review = Review.new
         @amenity = Amenity.new
-
     end
    
     def edit
