@@ -20,7 +20,7 @@
           <%= link_to "Create a spot", new_spot_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <% if current_user.photo %>
+          <% if current_user.photo.attachment %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <%= image_tag "garden.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
