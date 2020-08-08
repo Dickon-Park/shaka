@@ -1,19 +1,9 @@
-import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
-import 'mapbox-gl/dist/mapbox-gl.css';
-
+import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
 
-if (mapElement) {
-  mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
-  map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                      mapboxgl: mapboxgl }));
-}
-
 const buildMap = () => {
-  mapboxgl.accessToken = process.env.MAPBOX_API_KEY;
+  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
@@ -22,18 +12,8 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-    const element = document.createElement('div');
-    element.className = 'marker';
-    element.style.backgroundImage = `url('${marker.image_url}')`;
-    element.style.backgroundSize = 'contain';
-    element.style.width = '25px';
-    element.style.height = '25px';
-
-    new mapboxgl.Marker(element)
-      .setLngLat([marker.lng, marker.lat])
-      .setPopup(popup)
+    new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   });
 };
