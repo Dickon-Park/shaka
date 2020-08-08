@@ -70,14 +70,14 @@ ActiveRecord::Schema.define(version: 2020_08_07_170324) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
-    t.float "longitude"
-    t.float "latitude"
     t.string "skill_level"
     t.string "disciplines"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|
