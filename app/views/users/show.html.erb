@@ -8,6 +8,7 @@
     <p><strong><%= @user.discipline %></strong></p>
     <p>Skill Level</p>
     <p><strong><%= @user.skill_level %></strong></p>
+    <%= link_to "Edit profile", edit_user_registration_path, class: "btn-profile-edit" %>
   </div>
   <div class="favourites-show">
     <h2>Saved Spots</h2>
