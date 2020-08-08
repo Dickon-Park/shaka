@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
-  def my_profile
+  def show
+    @user = current_user
+    @favourites = @user.favourites
   end
 end

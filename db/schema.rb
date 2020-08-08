@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_08_07_170324) do
 
   create_table "spots", force: :cascade do |t|
     t.string "name"
+<<<<<<< HEAD
+<<<<<<< HEAD
+    t.string "longitude"
+    t.string "latitude"
+=======
+>>>>>>> 397256461a2ff2bc1cd50ee6c45d8fbf4eb90266
+=======
+>>>>>>> ba4bdd4f262b596e5252ef767ecf513642982d96
     t.string "skill_level"
     t.string "disciplines"
     t.text "description"
