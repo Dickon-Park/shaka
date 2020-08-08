@@ -26,7 +26,8 @@
                 input_html: { autocomplete: "discipline" } %>
     <%= f.input :skill_level,
                 required: true,
-                input_html: { autocomplete: "skill-level" } %>                        
+                input_html: { autocomplete: "skill-level" } %>
+    <%= f.input :photo, as: :file %>                        
   </div>
 
   <div class="form-actions">
