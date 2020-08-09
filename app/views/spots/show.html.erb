@@ -1,32 +1,33 @@
 <div class="container">
   <h1> checkout the spot </h1>
-  <% @spot.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <h2> <%= @spot.name %> </h2>
-
-  <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
-
-  <% if @my_favourite %>
-    <%= link_to favourite_path(@my_favourite), method: :delete do %>
-      <i class="fas fa-heart"></i>
+  <div class="spot-imgs">
+    <% @spot.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
-  <% else %>
-    <%= link_to spot_favourites_path(@spot), method: :post do %>
-      <i class="far fa-heart"></i>
+  </div>
+  <div class="spot-description">
+    <h2> <%= @spot.name %> </h2>
+
+    <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
+
+    <% if @my_favourite %>
+      <%= link_to favourite_path(@my_favourite), method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to spot_favourites_path(@spot), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div class="spot-links">
     <%= link_to 'Edit', edit_spot_path(@spot) %> |
     <%= link_to 'Back', spots_path %>
   </div>
-
+  <div id="reviews">
   <h2>
     <%= pluralize @spot.reviews.size, "review" %>
   </h2>
-
-
-  <div id="reviews">
     <div class="reviews-form">
       <div class="col-sm-3">
         <%= simple_form_for [ @spot, @review ] do |f| %>
@@ -51,8 +52,14 @@
       </div>
     </div>
   </div>
-</div>
+    <div class="amenities-form">
+      <div class="col-sm-3">
+        <h2>Add some amenities</h2>
+        <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
 
-<h2>Add some amenities</h2>
-<%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
-<%= @spot.amenities %>
+        <div class="amenities-list">
+          <%= @spot.amenities %>
+        </div>
+      </div>
+    </div>
+</div>
