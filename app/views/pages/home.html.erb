@@ -2,6 +2,10 @@
   <div class="container">
     <h1>Shaka</h1>
     <p>Let’s find the best spots for wind sports based on you</p>
-    <%= link_to "Start now", new_user_registration_path, class: "btn btn-danger" %>
+    <% if user_signed_in? %>
+      <%= link_to "Start now", user_path(current_user), class: "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Start now", new_user_registration_path, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </div>
