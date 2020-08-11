@@ -60,4 +60,3 @@ class SpotsController < ApplicationController
     params.require(:spot).permit(:name, :address, :longitude, :latitude, :description, :skill_level, disciplines: [], photos: [])
   end
 end
-
