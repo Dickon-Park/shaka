@@ -6,6 +6,9 @@
   <h2> <%= @spot.name %> </h2>
 
   <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
+  <% @spot.disciplines.each do |discipline| %>
+    <p><%= discipline %></p>
+  <% end %>
 
   <% if @my_favourite %>
     <%= link_to favourite_path(@my_favourite), method: :delete do %>
