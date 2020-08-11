@@ -54,8 +54,12 @@
       </div>
     </div>
   </div>
-</div>
 
-<h2>Add some amenities</h2>
-<%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
-<%= @spot.amenities %>
+  <div class= "amenity">
+  <h2>Add some amenities</h2>
+    <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+      <% @spot.amenities.each do |amenity| %>
+        <p><%= amenity %></p>
+      <% end %>
+  </div>
+</div>
