@@ -26,6 +26,13 @@
 
 <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
 
+<div id="map"
+     style="width: 70px; height: 100px;"
+     data-markers="<%= @markers.to_json %>"
+     
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
   <h2>
     <%= pluralize @spot.reviews.size, "review" %>
   </h2>

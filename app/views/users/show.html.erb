@@ -7,7 +7,9 @@
 </div>
 <div class="container">
   <div class="profile">
-    <% unless @user.photo.attachment.nil? %>
+    <% if @user.photo.attachment.nil? %>
+      <%= cl_image_tag "1vl40da6exlw522w0ssf6vojyme4.png", height: 300, width: 300, crop: :fill, class: "img-rounded" %>
+    <% else %>
       <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "img-rounded" %>
     <% end %>
     <div class="profile-description-box">
