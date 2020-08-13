@@ -1,12 +1,15 @@
+<div class="container-banner">
+  <div class="profile-banner">
+    <div class="container">
+      <h1>My Profile</h1>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="profile">
-
-    <h2>My Profile</h2>
-    <div class="profile-img">
     <% unless @user.photo.attachment.nil? %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "img-rounded" %>
     <% end %>
-    </div>
     <div class="profile-description-box">
         <p>Full name</p>
         <p><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
@@ -14,7 +17,7 @@
         <p><strong><%= @user.discipline %></strong></p>
         <p>Skill Level</p>
         <p><strong><%= @user.skill_level %></strong></p>
-        <%= link_to "Edit profile", edit_user_registration_path, class: "btn-profile-edit" %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
   <div class="favourites-box">
