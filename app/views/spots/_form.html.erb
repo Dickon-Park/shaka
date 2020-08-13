@@ -3,7 +3,7 @@
     <%= f.input :name %>
     <%= f.input :address %>
     <%= f.input :skill_level %>
-    <%= f.input :disciplines %>
+    <%= f.input :disciplines, collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], label: "Disciplines", input_html: { multiple: true } %>
     <%= f.input :description %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit %>
