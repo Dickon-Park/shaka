@@ -1,46 +1,42 @@
 <div class="container">
-  <h1> checkout the spot </h1>
-  <% @spot.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <h2> <%= @spot.name %> </h2>
-
-  <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
-  <% @spot.disciplines.each do |discipline| %>
-    <p><%= discipline %></p>
-  <% end %>
-
-  <% if @my_favourite %>
-    <%= link_to favourite_path(@my_favourite), method: :delete do %>
-      <i class="fas fa-heart"></i>
+  <div class="spot-description">
+    <h1> checkout the spot </h1>
+    <% @spot.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
-  <% else %>
-    <%= link_to spot_favourites_path(@spot), method: :post do %>
-      <i class="far fa-heart"></i>
+    <h2><%= @spot.name %></h2>
+    <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
+    <% @spot.disciplines.each do |discipline| %>
+      <%= discipline %> 
     <% end %>
-  <% end %>
-  <div class="spot-links">
-    <%= link_to 'Edit', edit_spot_path(@spot) %> |
-    <%= link_to 'Back', spots_path %>
   </div>
 
-<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+  <div class="favourites">
+    <% if @my_favourite %>
+      <%= link_to favourite_path(@my_favourite), method: :delete do %>
+        <i class="fas fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to spot_favourites_path(@spot), method: :post do %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    <% end %>
+  </div>
 
-<div id="map"
-     style="width: 70px; height: 100px;"
-     data-markers="<%= @markers.to_json %>"
-     
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  <div class="spot-links">
+    <%= link_to 'Edit', edit_spot_path(@spot) %> |
+    <%= link_to "Delete", spot_path(@spot), class: "btn btn-light", method: :delete, data: { confirm: "Are you sure?" } %> |
+    <%= link_to 'Back', spots_path %>
+    <p>This spot was created with the help of : <%= link_to 'user', '#' %></p>
+  </div>
+  
 
-  <h2>
-    <%= pluralize @spot.reviews.size, "review" %>
-  </h2>
-
+  <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
 
   <div id="reviews">
     <div class="reviews-form">
       <div class="col-sm-3">
+      <h2><%= pluralize @spot.reviews.size, "review" %></h2>
         <%= simple_form_for [ @spot, @review ] do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.input :message %>
@@ -66,13 +62,22 @@
 
 
   <div class= "amenity">
-  <% @spot.amenities.each do |amenity| %>
-      <p><%= amenity.category %></p>
-      <p><%= amenity.address %></p>
-      <p><%= amenity.descripton %></p>
-  <% end %>
-
-  <h3>Add some amenities</h3>
-    <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+    <div class="amenities-box">
+      <div class="col-sm-3">
+        <% @spot.amenities.each do |amenity| %>
+            <p><%= amenity.category %></p>
+            <p><%= amenity.address %></p>
+            <p><%= amenity.descripton %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class= "amenity">
+    <div class="amenities-form">
+      <div class="col-sm-3">
+        <h3>Add some amenities</h3>
+        <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+      </div>
+    </div>
   </div>
 </div>
