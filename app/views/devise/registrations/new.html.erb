@@ -25,9 +25,10 @@
                 collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], 
                 label: "Discipline", 
                 required: true %>
-    <%= f.input :skill_level,
-                required: true,
-                input_html: { autocomplete: "skill-level" } %>
+    <%= f.input :skill_level, 
+                collection: ["Easy", "Medium", "Hard", "Pro"], 
+                label: "skill level", 
+                required: true %>
     <%= f.input :photo, as: :file %>                        
   </div>
 
