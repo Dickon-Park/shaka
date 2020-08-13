@@ -5,17 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-require 'faker'
-
-puts 'Creating 20 fake spots...'
-20.times do
-  spot = Spot.new(
-    name: Faker::Name.unique.name,
-    address: Faker::Address.full_address,
-    skill_level: "Beginner",
-    disciplines: "kitesurf"
-  )
-  spot.save!
-end
-puts 'Finished!'
