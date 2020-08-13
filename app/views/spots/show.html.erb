@@ -24,6 +24,8 @@
     <%= link_to 'Back', spots_path %>
   </div>
 
+<iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+
   <h2>
     <%= pluralize @spot.reviews.size, "review" %>
   </h2>
@@ -55,11 +57,15 @@
     </div>
   </div>
 
+
   <div class= "amenity">
-  <h2>Add some amenities</h2>
+  <% @spot.amenities.each do |amenity| %>
+      <p><%= amenity.category %></p>
+      <p><%= amenity.address %></p>
+      <p><%= amenity.descripton %></p>
+  <% end %>
+
+  <h3>Add some amenities</h3>
     <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
-      <% @spot.amenities.each do |amenity| %>
-        <p><%= amenity %></p>
-      <% end %>
   </div>
 </div>
