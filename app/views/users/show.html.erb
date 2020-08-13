@@ -13,19 +13,26 @@
       <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "img-rounded" %>
     <% end %>
     <div class="profile-description-box">
-        <p>Full name</p>
-        <p><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-        <p>Discipline</p>
-        <p><strong><%= @user.discipline %></strong></p>
-        <p>Skill Level</p>
-        <p><strong><%= @user.skill_level %></strong></p>
-        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-secondary" %>
+        <p>Full name: <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+        <p>Discipline: <strong><%= @user.discipline %></strong></p>
+        <p>Skill Level: <strong><%= @user.skill_level %></strong></p>
+    </div>
+    <div class="btn-profile">
+      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
+  <h1>Saved Spots</h1>
   <div class="favourites-box">
-    <h2>Saved Spots</h2>
     <% @favourites.each do |fav| %>
-      <%= fav %>
+      <div class="card-favourites">
+          <% fav.spot.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
+          <div class="card-fav-infos">
+            <h2><%= fav.spot.name %></h2>
+            <p><%= fav.spot.address %></p>
+          </div>
+      </div>
     <% end %>
   </div>
 </div>

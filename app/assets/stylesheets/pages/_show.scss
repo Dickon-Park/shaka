@@ -1,4 +1,29 @@
 .profile-description-box {
-    position: relative;
-    top: 80px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+
+.favourites-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 16px 0;
+}
+
+.img-unavailable {
+    background-color: $light-gray;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.profile {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
