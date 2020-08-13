@@ -14,9 +14,10 @@
     <%= f.input :discipline,
                 required: true,
                 input_html: { autocomplete: "discipline" } %>
-    <%= f.input :skill_level,
-                required: true,
-                input_html: { autocomplete: "skill-level" } %>
+    <%= f.input :skill_level, 
+                collection: ["Easy", "Medium", "Hard", "Pro"], 
+                label: "skill level", 
+                required: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
