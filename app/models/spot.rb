@@ -1,4 +1,5 @@
 class Spot < ApplicationRecord
+    belongs_to :user
     has_many_attached :photos
     has_many :amenities
     has_many :reviews, dependent: :destroy

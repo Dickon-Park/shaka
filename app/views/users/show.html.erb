@@ -18,7 +18,7 @@
         <p>Skill Level: <strong><%= @user.skill_level %></strong></p>
     </div>
     <div class="btn-profile">
-      <%= link_to "Personal spots", spots_path(params: {skill_discipline: true}), class: "btn btn-danger" %>
+      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "btn btn-danger" %>
       <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-danger" %>
     </div>
   </div>
