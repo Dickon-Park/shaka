@@ -25,15 +25,17 @@
   <h1>Saved Spots</h1>
   <div class="favourites-box">
     <% @favourites.each do |fav| %>
+    <%= link_to spot_path(fav.spot) do %>
       <div class="card-favourites">
-          <% fav.spot.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
-          <% end %>
-          <div class="card-fav-infos">
-            <h2><%= fav.spot.name %></h2>
-            <p><%= fav.spot.address %></p>
-          </div>
+        <% fav.spot.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+        <% end %>
+        <div class="card-fav-infos">
+          <h2><%= fav.spot.name %></h2>
+          <p><%= fav.spot.address %></p>
+        </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
