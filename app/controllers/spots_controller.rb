@@ -4,6 +4,10 @@ class SpotsController < ApplicationController
     def index
         # @spots = Spot.all
         @spots = Spot.geocoded # returns spots with coordinates
+        p params[:skill_discipline].present?
+        if params[:skill_discipline].present?
+          @spots = @spots.where(skill_level: current_user.skill_level).where("'#{current_user.discipline}' = Any (disciplines)")
+        end 
 
         @markers = @spots.map do |spot|
         {
@@ -39,13 +43,13 @@ class SpotsController < ApplicationController
     end
 
     def update
-        @spot = Spot.update(spot_params)
+      @spot.update(spot_params)
         
-        redirect_to spot_path(@spot)
+      redirect_to spot_path(@spot)
     end
 
     def destroy 
-        @spot = Spot.destroy
+        @spot = @spot.destroy
 
         redirect_to spots_path
     end
