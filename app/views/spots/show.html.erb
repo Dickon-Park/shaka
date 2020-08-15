@@ -9,6 +9,7 @@
     <% @spot.disciplines.each do |discipline| %>
       <%= discipline %> |
     <% end %>
+    <p><%= @spot.description %></p>
   </div>
 
   <div class="favourites">
@@ -60,8 +61,6 @@
       </div>
     </div>
   </div>
-
-
   <div class= "amenity">
     <div class="amenities-box">
       <div class="col-sm-3">
