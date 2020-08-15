@@ -7,7 +7,7 @@
     <h2><%= @spot.name %></h2>
     <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
     <% @spot.disciplines.each do |discipline| %>
-      <%= discipline %> 
+      <%= discipline %> |
     <% end %>
   </div>
 
@@ -24,10 +24,11 @@
   </div>
 
   <div class="spot-links">
-    <%= link_to 'Edit', edit_spot_path(@spot) %> |
-    <%= link_to "Delete", spot_path(@spot), class: "btn btn-light", method: :delete, data: { confirm: "Are you sure?" } %> |
-    <%= link_to 'Back', spots_path %>
-    <p>This spot was created with the help of : <%= link_to 'user', '#' %></p>
+    <% if @spot.user == current_user %>
+      <%= link_to 'Edit', edit_spot_path(@spot), class: "btn btn-danger" %>
+      <%= link_to "Delete", spot_path(@spot), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+      <%= link_to 'Back', spots_path, class: "btn btn-danger" %>
   </div>
   
 
