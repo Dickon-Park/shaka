@@ -9,7 +9,7 @@
                       collection: ["Easy", "Medium", "Hard", "Pro"], 
                       label: "skill level", 
                       required: true %>
-          <%= f.input :disciplines, collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], label: "Disciplines", input_html: { multiple: true } %>
+          <%= f.input :disciplines, collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], label: "Disciplines", input_html: { multiple: true }, include_blank: false, include_hidden: false %>
           <%= f.input :description %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.button :submit, class: "btn btn-danger" %>
