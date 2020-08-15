@@ -15,9 +15,10 @@
             <%= f.input :last_name,
                         required: true,
                         input_html: { autocomplete: "last-name" } %>
-            <%= f.input :discipline,
-                        required: true,
-                        input_html: { autocomplete: "discipline" } %>
+            <%= f.input :discipline, 
+                        collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], 
+                        label: "Discipline", 
+                        required: true %>
             <%= f.input :skill_level, 
                         collection: ["Easy", "Medium", "Hard", "Pro"], 
                         label: "skill level", 
