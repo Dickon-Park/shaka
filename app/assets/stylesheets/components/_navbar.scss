@@ -8,7 +8,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .logo-text {
@@ -19,4 +20,14 @@
   top: 49px;
   left: 22px;
   opacity: .7;
+}
+
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-home .a {
+    color: white;
+  }
 }

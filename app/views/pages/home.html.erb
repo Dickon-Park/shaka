@@ -1,9 +1,11 @@
+<%= content_for(:navbar_class, "navbar-home") %>
+
 <div class="banner">
   <div class="container">
     <h1>Shaka</h1>
     <p>Let’s find the best spots for wind sports based on you</p>
     <% if user_signed_in? %>
-      <%= link_to "Start now", user_path(current_user), class: "btn btn-danger" %>
+      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "btn btn-danger" %>
     <% else %>
       <%= link_to "Start now", new_user_registration_path, class: "btn btn-danger" %>
     <% end %>

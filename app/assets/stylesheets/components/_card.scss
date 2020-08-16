@@ -3,6 +3,14 @@
     background: white;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     width: 350px;
+    transition-duration: 0.5s;
+}
+
+.card-favourites:hover {
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    transition-duration: 0.5s;
+    text-decoration: none;
 }
   
 .card-favourites > img {
@@ -21,13 +29,14 @@
     opacity: .7;
     margin: 0;
 }
-  
+
+.card-favourites a {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
   
 .card-favourites .card-fav-infos {
     padding: 16px;
     position: relative;
 }
-
-
-  
-  

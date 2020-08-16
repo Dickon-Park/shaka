@@ -6,7 +6,7 @@
 .favourites-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 16px;
     margin: 16px 0;
 }
 
@@ -26,4 +26,11 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+<<<<<<< HEAD
 }
+=======
+    .btn-profile {
+        margin-right: 15px;
+    }
+}
+>>>>>>> a940c02c14cc90f46aa51ba1feec177e5b8e6e36
