@@ -10,13 +10,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "btn btn-danger" %>
+          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Spots", spots_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Create a spot", new_spot_path, class: "nav-link" %>
+          <%= link_to "Explore", spots_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attachment.nil? %>
@@ -27,6 +24,8 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Home", "/", class: "dropdown-item" %>
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Saved", '#' , class: "dropdown-item" %>
+            <%= link_to "Tag a spot", new_spot_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
