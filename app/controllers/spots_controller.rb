@@ -1,5 +1,6 @@
 class SpotsController < ApplicationController
-    before_action :set_spot, only: [ :show, :edit, :update, :destroy ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]  
+  before_action :set_spot, only: [ :show, :edit, :update, :destroy ]
 
     def index
         # @spots = Spot.all
