@@ -4,7 +4,7 @@
   transition-duration: 0.3s;
 }
 .avatar:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
   cursor: pointer;
   transition-duration: 0.3s;
 }
@@ -31,5 +31,5 @@
   width: 150px;
   height: 150px;
   position: absolute;
-  top: 250px;
+  top: 265px;
 }
