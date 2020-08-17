@@ -1,4 +1,4 @@
-.banner {
+.home-banner {
   height: 100vh;
   display: flex;
   justify-content: space-around;
@@ -6,6 +6,7 @@
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background.jpg");
   background-size: cover;
   background-position: center;
+  padding-top: 25vh;
   h1 {
     color: white;
     font-weight: bold;
@@ -24,7 +25,7 @@
 }
 
 .profile-banner {
-  height: 275px;
+  height: 360px;
   padding: 16px;
   display: flex;
   justify-content: space-around;
@@ -32,6 +33,7 @@
   background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background2.jpg");
   background-size: cover;
   background-position: center;
+  padding-top: 16vh;
   h1 {
     color: white;
     font-weight: bold;
