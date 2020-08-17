@@ -26,10 +26,10 @@
 
   <div class="spot-links">
     <% if @spot.user == current_user %>
-      <%= link_to 'Edit', edit_spot_path(@spot), class: "btn btn-danger" %>
-      <%= link_to "Delete", spot_path(@spot), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Edit', edit_spot_path(@spot), class: "btn btn-shaka" %>
+      <%= link_to "Delete", spot_path(@spot), class: "btn btn-shaka", method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
-      <%= link_to 'Back', spots_path, class: "btn btn-danger" %>
+      <%= link_to 'Back', spots_path, class: "btn btn-shaka" %>
   </div>
   
 
@@ -42,7 +42,7 @@
         <%= simple_form_for [ @spot, @review ] do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.input :message %>
-          <%= f.button :submit, class: "btn btn-danger" %>
+          <%= f.button :submit, class: "btn btn-shaka" %>
         <% end %>
       </div>
     </div>

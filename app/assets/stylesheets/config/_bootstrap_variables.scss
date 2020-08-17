@@ -9,6 +9,7 @@ $headings-font-family:    $headers-font;
 $body-bg:                 $white;
 $font-size-base: 1rem;
 
+
 // Colors
 $body-color: $gray;
 $primary:    $shaka-blue;
@@ -23,3 +24,5 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$link-decoration: none !default;
+$link-hover-decoration: none !default;
