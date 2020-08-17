@@ -47,3 +47,20 @@
 .container-banner{
   margin: 0;
 }
+
+.form-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), image-url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: white;
+    opacity: .9;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+}
