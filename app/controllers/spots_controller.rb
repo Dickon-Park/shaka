@@ -5,9 +5,10 @@ class SpotsController < ApplicationController
     def index
         # @spots = Spot.all
         @spots = Spot.geocoded # returns spots with coordinates
-        p params[:skill_discipline].present?
         if params[:skill_discipline].present?
           @spots = @spots.where(skill_level: current_user.skill_level).where("'#{current_user.discipline}' = Any (disciplines)")
+        else params[:query].present?
+          @spots = @spots.where("address ILIKE ?", "%#{params[:query]}%")
         end 
 
         @markers = @spots.map do |spot|

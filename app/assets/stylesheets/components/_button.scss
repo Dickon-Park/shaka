@@ -1,0 +1,13 @@
+.btn-home-red {
+    background-color:#f53434;
+    color: white;
+    padding: 7px 15px;
+    border: 0;
+    border-radius: 2px;
+}
+
+.btn-home-red:hover {
+    background-color: #E50207;
+    transition-duration: 0.20s;
+    transition: ease-in-out;
+}
