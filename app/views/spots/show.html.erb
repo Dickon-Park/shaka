@@ -1,40 +1,40 @@
 <div class="container">
-  <div class="spot-description">
-    <h1> checkout the spot </h1>
-    <% @spot.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-    <h2><%= @spot.name %></h2>
-    <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
-    <% @spot.disciplines.each do |discipline| %>
-      <%= discipline %> |
-    <% end %>
-    <p><%= @spot.description %></p>
-  </div>
-
-  <div class="favourites">
-    <% if @my_favourite %>
-      <%= link_to favourite_path(@my_favourite), method: :delete do %>
-        <i class="fas fa-heart"></i>
+  <div class="card-spot">
+    <div class="spot-description">
+      <h1> checkout the spot </h1>
+      <% @spot.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
-    <% else %>
-      <%= link_to spot_favourites_path(@spot), method: :post do %>
-        <i class="far fa-heart"></i>
+      <h2><%= @spot.name %></h2>
+      <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
+      <% @spot.disciplines.each do |discipline| %>
+        <%= discipline %> |
       <% end %>
-    <% end %>
-  </div>
+      <p><%= @spot.description %></p>
+    </div>
 
-  <div class="spot-links">
-    <% if @spot.user == current_user %>
-      <%= link_to 'Edit', edit_spot_path(@spot), class: "animation btn-shaka" %>
-      <%= link_to "Delete", spot_path(@spot), class: "animation btn-shaka", method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
-      <%= link_to 'Back', spots_path, class: "animation btn-shaka" %>
-  </div>
-  
+    <div class="favourites">
+      <% if @my_favourite %>
+        <%= link_to favourite_path(@my_favourite), method: :delete do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to spot_favourites_path(@spot), method: :post do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+      <% end %>
+    </div>
 
-  <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
-
+    <div class="spot-links">
+      <% if @spot.user == current_user %>
+        <%= link_to 'Edit', edit_spot_path(@spot), class: "animation btn-shaka" %>
+        <%= link_to "Delete", spot_path(@spot), class: "animation btn-shaka", method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+        <%= link_to 'Back', spots_path, class: "animation btn-shaka" %>
+    </div>
+    <div class="card-forecast">
+      <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+    </div>
   <div id="reviews">
     <div class="reviews-form">
       <div class="col-sm-3">
