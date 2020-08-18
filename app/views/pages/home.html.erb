@@ -4,22 +4,14 @@
   <div class="container">
     <h1>Shaka</h1>
     <p>Let’s find the best spots for wind sports based on you</p>
-    <div class="col-xs-12 col-sm-8 col-sm-offset-8 p-0">
-      <div class="search-form">
-        <%= form_tag spots_path, method: :get, class: "form-inline" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a spot near you" %>
-            <%= submit_tag "Search", class: "btn btn-danger" %>
-        <% end %>
-      </div>
+    <div class="search-form">
+      <%= form_tag spots_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a spot near you" %>
+          <%= submit_tag "Search", class: "btn btn-danger" %>
+      <% end %>
     </div>
-    <p> or </p>
-    <% if user_signed_in? %>
-      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka btn-giant" %>
-    <% else %>
-      <%= link_to "Create your profile", new_user_registration_path, class: "animation btn-shaka btn-giant" %>
-    <% end %>
   </div>
 </div>

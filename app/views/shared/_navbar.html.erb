@@ -8,13 +8,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "All locations", spots_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Explore", spots_path, class: "nav-link" %>
-        </li>
+        <div class="btn-home">
+          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka" %>
+        </div>
         <li class="nav-item dropdown">
           <% if current_user.photo.attachment.nil? %>
             <%= cl_image_tag "1vl40da6exlw522w0ssf6vojyme4.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -33,6 +33,9 @@
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+        <div class="btn-home">
+          <%= link_to "Create your profile", new_user_registration_path, class: "animation btn-shaka" %>
+        </div>
       <% end %>
     </ul>
   </div>
