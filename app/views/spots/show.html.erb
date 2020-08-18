@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="card-spot">
+  <div class="card">
     <div class="spot-description">
       <h1> checkout the spot </h1>
       <% @spot.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag photo.key, height: 300, width: 1110, crop: :fill %>
       <% end %>
       <h2><%= @spot.name %></h2>
       <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
@@ -33,9 +33,11 @@
         <%= link_to 'Back', spots_path, class: "btn btn-danger" %>
     </div>
   </div>
-  <div class="card-forecast">
-    <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+  <div class="card">
+    <iframe width="1110" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
   </div>
+
+  <div class="card">
   <div id="reviews">
     <div class="reviews-form">
       <div class="col-sm-3">
@@ -62,6 +64,8 @@
       </div>
     </div>
   </div>
+  </div>
+  <div class="card">
   <div class= "amenity">
     <div class="amenities-box">
       <div class="col-sm-3">
@@ -80,5 +84,6 @@
         <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
       </div>
     </div>
+  </div>
   </div>
 </div>
