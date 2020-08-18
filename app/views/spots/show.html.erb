@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="card-spot">
+  <div class="card">
     <div class="spot-description">
       <h1> checkout the spot </h1>
       <div class="spot-image">
         <% if @spot.photos.attachments.nil? %>
-          <%= image_tag "spot-pic.jpg", width: 200 %>
+          <%= image_tag "spot-pic.jpg", width: 1110 %>
         <% else %>
           <% @spot.photos.each do |photo| %> 
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+            <%= cl_image_tag photo.key, height: 300, width: 1110, crop: :fill %>
           <% end %>
         <% end %>
       </div>
@@ -38,51 +38,59 @@
       <% end %>
         <%= link_to 'Back', spots_path, class: "animation btn-shaka" %>
     </div>
-    <div class="card-forecast">
-      <iframe width="650" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
-    </div>
-  <div id="reviews">
-    <div class="reviews-form">
-      <div class="col-sm-3">
-      <h2><%= pluralize @spot.reviews.size, "review" %></h2>
-        <%= simple_form_for [ @spot, @review ] do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-          <%= f.input :message %>
-          <%= f.button :submit, class: "btn btn-danger" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="reviews-content">
-      <div class="col-sm-3">
-        <% if @spot.reviews.blank? %>
-          Be the first to leave a review for <%= @spot.name %>
-        <% else %>
-          <% @spot.reviews.each do |review| %>
-            <% review.rating.to_i.times do  %>
-              <i class="fas fa-star"></i>
+  </div>
+  <div class="card">
+    <iframe width="1110" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div id="reviews">
+        <div class="reviews-form">
+          <div class="col-sm-3">
+          <h2><%= pluralize @spot.reviews.size, "review" %></h2>
+            <%= simple_form_for [ @spot, @review ] do |f| %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+              <%= f.input :message %>
+              <%= f.button :submit, class: "btn btn-danger" %>
             <% end %>
-            <p><%= review.message %></p>
-          <% end %>
-        <% end %>
+          </div>
+        </div>
+        <div class="reviews-content">
+          <div class="col-sm-3">
+            <% if @spot.reviews.blank? %>
+              Be the first to leave a review for <%= @spot.name %>
+            <% else %>
+              <% @spot.reviews.each do |review| %>
+                <% review.rating.to_i.times do  %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <p><%= review.message %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class= "amenity">
-    <div class="amenities-box">
-      <div class="col-sm-3">
-        <% @spot.amenities.each do |amenity| %>
-            <p><%= amenity.category %></p>
-            <p><%= amenity.address %></p>
-            <p><%= amenity.descripton %></p>
-        <% end %>
+    
+    <div class="card">
+      <div class= "amenity">
+        <div class="amenities-box">
+          <div class="col-sm-3">
+            <% @spot.amenities.each do |amenity| %>
+                <p><%= amenity.category %></p>
+                <p><%= amenity.address %></p>
+                <p><%= amenity.descripton %></p>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class= "amenity">
-    <div class="amenities-form">
-      <div class="col-sm-3">
-        <h3>Add some amenities</h3>
-        <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+      <div class= "amenity">
+        <div class="amenities-form">
+          <div class="col-sm-3">
+            <h3>Add some amenities</h3>
+            <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
