@@ -2,9 +2,15 @@
   <div class="card-spot">
     <div class="spot-description">
       <h1> checkout the spot </h1>
-      <% @spot.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+      <div class="spot-image">
+        <% if @spot.photos.attachments.nil? %>
+          <%= image_tag "spot-pic.jpg", width: 200 %>
+        <% else %>
+          <% @spot.photos.each do |photo| %> 
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        <% end %>
+      </div>
       <h2><%= @spot.name %></h2>
       <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
       <% @spot.disciplines.each do |discipline| %>
@@ -15,11 +21,11 @@
 
     <div class="favourites">
       <% if @my_favourite %>
-        <%= link_to favourite_path(@my_favourite), method: :delete do %>
+        <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
           <i class="fas fa-heart"></i>
         <% end %>
       <% else %>
-        <%= link_to spot_favourites_path(@spot), method: :post do %>
+        <%= link_to spot_favourites_path(@spot), remote: true, method: :post do %>
           <i class="far fa-heart"></i>
         <% end %>
       <% end %>
