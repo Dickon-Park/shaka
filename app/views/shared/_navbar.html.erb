@@ -13,7 +13,7 @@
       </li>
       <% if user_signed_in? %>
         <div class="btn-home">
-          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka" %>
+          <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka btn-grow" %>
         </div>
         <li class="nav-item dropdown">
           <% if current_user.photo.attachment.nil? %>
@@ -34,7 +34,7 @@
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
         <div class="btn-home">
-          <%= link_to "Create your profile", new_user_registration_path, class: "animation btn-shaka" %>
+          <%= link_to "Create your profile", new_user_registration_path, class: "animation btn-shaka btn-grow" %>
         </div>
       <% end %>
     </ul>
