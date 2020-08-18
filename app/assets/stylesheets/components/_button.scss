@@ -1,5 +1,5 @@
 .btn-home-red {
-    background-color: $shaka-blue;
+    background-color: $shaka-red;
     color: white;
     padding: 7px 15px;
     border: 0;
@@ -11,3 +11,51 @@
     transition-duration: 0.20s;
     transition: ease-in-out;
 }
+
+.animation {
+    color: #6c757d;
+    background-color: #dee2e6;
+    padding: 7px 15px;
+    border: 0;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: color 0.4s linear;
+    position: relative;
+}
+
+.animation:hover {
+    color: #ffffff;
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.animation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E50207;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5,1.6,0.4,0.7);
+}
+
+.btn-shaka::before {
+    transform: scaleX(0);
+}
+
+.btn-shaka:hover::before {
+    transform: scaleX(1);
+}
+
+.btn-grow {
+    padding: 10px 20px;
+}
+
+.btn-giant {
+    padding: 20px 90px;
+}
+

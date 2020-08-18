@@ -9,7 +9,7 @@
     grid-gap: 16px;
     margin: 16px 0;
 }
-
+  
 .img-unavailable {
     background-color: $light-gray;
     background-position: center;
@@ -38,6 +38,10 @@
 
 .card-spot {
     display: grid;
+}
+
+.spot-links {
+    margin: 10px 0;
 }
 
 .cards {

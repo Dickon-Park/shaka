@@ -18,8 +18,8 @@
         <p>Skill Level: <strong><%= @user.skill_level %></strong></p>
     </div>
     <div class="btn-profile">
-      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "btn btn-danger" %>
-      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-danger" %>
+      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka btn-grow" %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "animation btn-shaka btn-grow" %>
     </div>
   </div>
   <h1>Saved Spots</h1>
@@ -27,8 +27,12 @@
     <% @favourites.each do |fav| %>
     <%= link_to spot_path(fav.spot) do %>
       <div class="card-favourites">
-        <% fav.spot.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+        <% if fav.spot.photos.nil? %>
+          <% image_tag url("https://unsplash.com/photos/dreNBtrc68c") %>
+        <% else %>
+          <% fav.spot.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
         <% end %>
         <div class="card-fav-infos">
           <h2><%= fav.spot.name %></h2>
