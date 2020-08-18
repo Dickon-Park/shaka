@@ -1,4 +1,25 @@
 <h2><%= spot.name %></h2>
 <p><%= spot.address %></p>
+<p><%= spot.description %></p>
+<p><%= spot.disciplines %></p>
+<p><%= spot.skill_level %></p>
+
+
 <p><%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %></p>
+
+<% spot.amenities.each do |amenity| %>
+    <p><%= amenity.category %></p>
+    <% if amenity.category.eql?("Toilet")%>
+        <i class="fas fa-toilet"></i>
+    <% end %>
+<% end %>
+
+<% spot.amenities.each do |amenity| %>
+    <p><%= amenity.category %></p>
+    <% if amenity.category.eql?("Kit rental")%>
+        <i class="fas fa-receipt"></i>
+    <% end %>
+<% end %>
+
+
 
