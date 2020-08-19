@@ -78,10 +78,16 @@
         <div class="amenities-box">
           <div class="col-sm-3">
             <% @spot.amenities.each do |amenity| %>
-                <p><%= amenity.category %></p>
-                <p><%= amenity.address %></p>
-                <p><%= amenity.descripton %></p>
-            <% end %>
+              <% if amenity.category.eql?("Toilet") %>
+                  <i class="fas fa-toilet"></i>
+              <% elsif amenity.category.eql?("Kit rental") %>
+                  <i class="fas fa-receipt"></i>
+              <% elsif amenity.category.eql?("Restaurant") %>
+                  <i class="fas fa-utensils"></i>
+              <% else amenity.category.eql?("Shop") %>
+                  <i class="fas fa-store"></i>
+              <% end %>
+        <% end %>
           </div>
         </div>
       </div>

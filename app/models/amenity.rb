@@ -1,4 +1,4 @@
 class Amenity < ApplicationRecord
   belongs_to :spot
-  validates :category, :descripton, presence: true
+  validates :category, presence: true
 end

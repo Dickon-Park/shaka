@@ -23,6 +23,7 @@
                         collection: ["Easy", "Medium", "Hard", "Pro"], 
                         label: "skill level", 
                         required: true %>
+            <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -39,7 +40,6 @@
                         hint: "we need your current password to confirm your changes",
                         required: true,
                         input_html: { autocomplete: "current-password" } %>
-            <%= f.input :photo, as: :file %>
           </div>
 
           <div class="form-actions">
