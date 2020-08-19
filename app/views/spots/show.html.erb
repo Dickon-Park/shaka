@@ -81,6 +81,12 @@
             <% if @spot.reviews.blank? %>
               Be the first to leave a review for <%= @spot.name %>
             <% else %>
+              <div class="reviews-avg">
+                <span>Average: <% @spot.reviews.average(:rating).to_i.times do  %>
+                  <i class="fas fa-star"></i></span>
+                <% end %>
+                (<%= @spot.reviews.average(:rating) %>)
+              </div>
               <% @spot.reviews.each do |review| %>
                 <% review.rating.to_i.times do  %>
                   <i class="fas fa-star"></i>
