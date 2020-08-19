@@ -1,5 +1,14 @@
 <div class="info-window">
     <div class="spot-info">
+        <% if spot.photos.count.eql?(0) %>
+          <%= image_tag "spot-pic.jpg", class: "info-img", id: "img-bw" %>
+        <% else %>
+           <% spot.photos.each do |photo| %>
+            <% if photo.eql?(spot.photos.first) %>
+              <%= cl_image_tag photo.key, width: 200, crop: :fill, class: "info-img" %>
+            <% end %>
+          <% end %>
+        <% end %>
         <h2><%= spot.name %></h2>
         <p><%= spot.address %></p>
         <p><%= spot.description %></p>
