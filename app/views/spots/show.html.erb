@@ -18,19 +18,19 @@
       <% end %>
       <p><%= @spot.description %></p>
     </div>
-
-    <div class="favourites">
-      <% if @my_favourite %>
-        <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
-          <i class="fas fa-heart"></i>
+    <% if user_signed_in? %>
+      <div class="favourites">
+        <% if @my_favourite %>
+          <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to spot_favourites_path(@spot), remote: true, method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to spot_favourites_path(@spot), remote: true, method: :post do %>
-          <i class="far fa-heart"></i>
-        <% end %>
-      <% end %>
-    </div>
-
+      </div>
+    <% end %>
     <div class="spot-links">
       <% if @spot.user == current_user %>
         <%= link_to 'Edit', edit_spot_path(@spot), class: "animation btn-shaka" %>
@@ -42,18 +42,19 @@
   <div class="card">
     <iframe width="1110" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
   </div>
-  
   <div class="cards">
     <div class="card">
       <div id="reviews">
         <div class="reviews-form">
           <div class="col-sm-3">
           <h2><%= pluralize @spot.reviews.size, "review" %></h2>
+          <% if user_signed_in? %>
             <%= simple_form_for [ @spot, @review ] do |f| %>
               <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
               <%= f.input :message %>
               <%= f.button :submit, class: "btn btn-danger" %>
             <% end %>
+          <% end %>
           </div>
         </div>
         <div class="reviews-content">
@@ -72,31 +73,30 @@
         </div>
       </div>
     </div>
-    
     <div class="card">
       <div class= "amenity">
         <div class="amenities-box">
-          <div class="col-sm-3">
-            <% @spot.amenities.each do |amenity| %>
-              <% if amenity.category.eql?("Toilet") %>
-                  <i class="fas fa-toilet"></i>
-              <% elsif amenity.category.eql?("Kit rental") %>
-                  <i class="fas fa-receipt"></i>
-              <% elsif amenity.category.eql?("Restaurant") %>
-                  <i class="fas fa-utensils"></i>
-              <% else amenity.category.eql?("Shop") %>
-                  <i class="fas fa-store"></i>
-              <% end %>
-              <%= amenity.descripton %>
-        <% end %>
-          </div>
+          <% @spot.amenities.each do |amenity| %>
+            <% if amenity.category.eql?("Toilet") %>
+                <i class="fas fa-toilet"></i>
+            <% elsif amenity.category.eql?("Kit rental") %>
+                <i class="fas fa-receipt"></i>
+            <% elsif amenity.category.eql?("Restaurant") %>
+                <i class="fas fa-utensils"></i>
+            <% else amenity.category.eql?("Shop") %>
+                <i class="fas fa-store"></i>
+            <% end %>
+            <p><%= amenity.descripton %></p>
+          <% end %>
         </div>
       </div>
       <div class= "amenity">
         <div class="amenities-form">
           <div class="col-sm-3">
-            <h3>Add some amenities</h3>
-            <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+            <% if user_signed_in? %>
+              <h3>Add some amenities</h3>
+              <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+            <% end %>
           </div>
         </div>
       </div>

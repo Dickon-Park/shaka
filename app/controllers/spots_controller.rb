@@ -36,11 +36,13 @@ class SpotsController < ApplicationController
     end
     
     def show
+      if user_signed_in?
         # Find my favourites
         @my_favourite = current_user.favourites.find_by(spot: @spot)
         # I'd like to find the favourite for a specific spot in my favourites
         @review = Review.new
         @amenity = Amenity.new
+      end
     end
    
     def edit

@@ -1,8 +1,20 @@
 .mapboxgl-popup {
     max-width: 200px;
+    min-width: 200px;
   }
   
 .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-  }
+}
+
+.amenities {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #4a4a4a;
+  opacity: .8;
+}
+
+.spot-info p {
+  margin: 0;
+}
