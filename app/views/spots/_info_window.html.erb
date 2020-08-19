@@ -20,6 +20,11 @@
                 <% end %>
             <% end %>
         </div>
+        <div class="reviews-avg">
+          <% spot.reviews.average(:rating).to_i.times do  %>
+            <span><i class="fas fa-star"></i></span>
+          <% end %>
+        </div>
         <%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %>
     </div>
 </div>
