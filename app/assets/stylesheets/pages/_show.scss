@@ -55,6 +55,6 @@
     height: 300px;
     object-fit: cover;
     object-position: bottom;
-    opacity: 0.5;
+    filter: grayscale(100%);
 }
 
