@@ -3,23 +3,23 @@
         <h2><%= spot.name %></h2>
         <p><%= spot.address %></p>
         <p><%= spot.description %></p>
+        <p><%= spot.skill_level %></p>
         <% spot.disciplines.each do |discipline| %>
           <span><%= discipline %></span> | 
         <% end %>
-        <p><%= spot.skill_level %></p>
-        <%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %>
-    </div>
-    <div class="amenities">
-        <% spot.amenities.each do |amenity| %>
-            <% if amenity.category.eql?("Toilet") %>
-                <i class="fas fa-toilet"></i>
-            <% elsif amenity.category.eql?("Kit rental") %>
-                <i class="fas fa-receipt"></i>
-            <% elsif amenity.category.eql?("Restaurant") %>
-                <i class="fas fa-utensils"></i>
-            <% else amenity.category.eql?("Shop") %>
-                <i class="fas fa-store"></i>
+        <div class="amenities">
+            <% spot.amenities.each do |amenity| %>
+                <% if amenity.category.eql?("Toilet") %>
+                    <i class="fas fa-toilet"></i>
+                <% elsif amenity.category.eql?("Kit rental") %>
+                    <i class="fas fa-receipt"></i>
+                <% elsif amenity.category.eql?("Restaurant") %>
+                    <i class="fas fa-utensils"></i>
+                <% else amenity.category.eql?("Shop") %>
+                    <i class="fas fa-store"></i>
+                <% end %>
             <% end %>
-        <% end %>
+        </div>
+        <%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %>
     </div>
 </div>
