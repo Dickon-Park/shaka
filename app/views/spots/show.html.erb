@@ -2,6 +2,23 @@
   <div class="card">
     <div class="spot-description">
       <h1> checkout the spot </h1>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @spot.photos.each do |photo| %>
+            <div class="carousel-item active">
+              <%= link_to cl_image_tag photo.key, height: 300, width: 1110, crop: :fill %>
+          </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
       <div class="spot-image">
         <% if @spot.photos.attachments.nil? %>
           <%= image_tag "spot-pic.jpg", width: 1110 %>
@@ -40,7 +57,7 @@
     </div>
   </div>
   <div class="card">
-    <iframe width="1110" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+    <iframe width="1100" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
   </div>
   <div class="cards">
     <div class="card">
@@ -48,13 +65,13 @@
         <div class="reviews-form">
           <div class="col-sm-3">
           <h2><%= pluralize @spot.reviews.size, "review" %></h2>
-          <% if user_signed_in? %>
-            <%= simple_form_for [ @spot, @review ] do |f| %>
-              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-              <%= f.input :message %>
-              <%= f.button :submit, class: "btn btn-danger" %>
+            <% if user_signed_in? %>
+              <%= simple_form_for [ @spot, @review ] do |f| %>
+                <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+                <%= f.input :message %>
+                <%= f.button :submit, class: "btn btn-danger" %>
+              <% end %>
             <% end %>
-          <% end %>
           </div>
         </div>
         <div class="reviews-content">
