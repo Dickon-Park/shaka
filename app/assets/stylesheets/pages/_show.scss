@@ -48,3 +48,13 @@
     display: grid;
     grid-gap: 16px;
 }
+
+.image-placeholder {
+    display: flex;
+    width: 1110px;
+    height: 300px;
+    object-fit: cover;
+    object-position: bottom;
+    opacity: 0.5;
+}
+
