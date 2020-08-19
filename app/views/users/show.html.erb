@@ -27,11 +27,13 @@
     <% @favourites.each do |fav| %>
     <%= link_to spot_path(fav.spot) do %>
       <div class="card-favourites">
-        <% if fav.spot.photos.nil? %>
-          <% image_tag url("https://unsplash.com/photos/dreNBtrc68c") %>
+        <% if fav.spot.photos.count.eql?(0) %>
+          <%= image_tag "spot-pic.jpg", id: "img-bw" %>
         <% else %>
           <% fav.spot.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+            <% if photo.eql?(fav.spot.photos.first) %>
+              <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
           <% end %>
         <% end %>
         <div class="card-fav-infos">
