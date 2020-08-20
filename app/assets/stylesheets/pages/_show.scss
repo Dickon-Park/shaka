@@ -9,17 +9,11 @@
     grid-gap: 16px;
     margin: 16px 0;
 }
-  
-.img-unavailable {
-    background-color: $light-gray;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.heart-red a {
+    color: $shaka-red;
+    font-size: 22px;
+    margin-left: 5px;
 }
 
 .profile {
@@ -40,6 +34,12 @@
     display: grid;
 }
 
+.description-box {
+    margin-top: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
 .spot-links {
     margin: 10px 0;
 }
@@ -47,4 +47,21 @@
 .cards {
     display: grid;
     grid-gap: 16px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    overflow: hidden;
 }
+
+.card {
+    padding: 16px;
+}
+
+.image-placeholder {
+    display: flex;
+    width: 1110px;
+    height: 350px;
+    object-fit: cover;
+    object-position: bottom;
+    filter: grayscale(100%);
+}
+

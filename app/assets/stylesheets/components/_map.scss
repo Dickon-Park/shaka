@@ -15,6 +15,20 @@
   opacity: .8;
 }
 
+.info-img {
+  overflow: hidden;
+  max-width: 200px;
+}
+
 .spot-info p {
   margin: 0;
 }
+
+.reviews-avg {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+ .reviews-avg i {
+  color: #FFDE59;
+  opacity: .9;
+ }
