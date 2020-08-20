@@ -32,25 +32,26 @@
           </div>
         </div>
         <div class="description-box">
-        <h2><%= @spot.name %></h2>
-        <% if user_signed_in? %>
-        <div class="heart-red">
-          <% if @my_favourite %>
-            <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to spot_favourites_path(@spot), remote: true, method: :post do %>
-              <i class="far fa-heart"></i>
-            <% end %>
+          <h2><%= @spot.name %></h2>
+          <% if user_signed_in? %>
+            <div class="heart-red">
+              <% if @my_favourite %>
+                <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to spot_favourites_path(@spot), remote: true, method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-      <% end %>
-      </div>
         <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
         <% @spot.disciplines.each do |discipline| %>
           <%= discipline %> |
         <% end %>
+        <p><%= @spot.skill_level %></p>
         <p><%= @spot.description %></p>
       </div>
       <div class="spot-links">
@@ -73,7 +74,7 @@
               <%= simple_form_for [ @spot, @review ] do |f| %>
                 <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
                 <%= f.input :message %>
-                <%= f.button :submit, class: "btn btn-danger" %>
+                <%= f.button :submit, class: "btn btn-danger", id: "submit-review" %>
               <% end %>
             <% end %>
           </div>
