@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 p spot = Spot.create!(
-    name: "Western Sahara",
+    name: "Brouwersdam",
     skill_level: "beginner",
     disciplines: ["Windsurfing", "Kite surfing"],
-    address: "Oued Ed-Dahab-Lagouira, 73000 Dakhla, Laâyoune-Boujdour-Sakia el Hamra",
+    address: "Ouddorp, Netherlands",
     description: "super flat water"
 )
