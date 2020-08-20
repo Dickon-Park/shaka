@@ -10,10 +10,11 @@
     margin: 16px 0;
 }
 
-.favourites a {
+.heart-red a {
     color: $shaka-red;
+    font-size: 22px;
+    margin-left: 5px;
 }
-
 
 .profile {
     display: flex;
@@ -33,6 +34,12 @@
     display: grid;
 }
 
+.description-box {
+    margin-top: 10px;
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+}
 .spot-links {
     margin: 10px 0;
 }
