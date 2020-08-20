@@ -2,15 +2,15 @@
   <div class="cards">
     <div class="card">
       <div class="spot-description">
-        <h1> checkout the spot </h1>
+        <h1>Checkout the spot</h1>
         <div class="spot-image">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <% if @spot.photos.count.eql?(0) %>
-                  <div class="carousel-item active ">
-                    <%= image_tag "spot-pic.jpg", class: "image-placeholder" %>
-                  </div>
-                <% end %>
+                <div class="carousel-item active ">
+                  <%= image_tag "spot-pic.jpg", class: "image-placeholder" %>
+                </div>
+              <% end %>
               <% @spot.photos.each do |photo| %>
                 <% if photo.eql?(@spot.photos.first) %>
                   <div class="carousel-item active">
@@ -31,15 +31,10 @@
             </a>
           </div>
         </div>
+        <div class="description-box">
         <h2><%= @spot.name %></h2>
-        <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
-        <% @spot.disciplines.each do |discipline| %>
-          <%= discipline %> |
-        <% end %>
-        <p><%= @spot.description %></p>
-      </div>
-      <% if user_signed_in? %>
-        <div class="favourites">
+        <% if user_signed_in? %>
+        <div class="heart-red">
           <% if @my_favourite %>
             <%= link_to favourite_path(@my_favourite), remote: true, method: :delete do %>
               <i class="fas fa-heart"></i>
@@ -51,6 +46,13 @@
           <% end %>
         </div>
       <% end %>
+      </div>
+        <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
+        <% @spot.disciplines.each do |discipline| %>
+          <%= discipline %> |
+        <% end %>
+        <p><%= @spot.description %></p>
+      </div>
       <div class="spot-links">
         <% if @spot.user == current_user %>
           <%= link_to 'Edit', edit_spot_path(@spot), class: "animation btn-shaka" %>
