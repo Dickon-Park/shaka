@@ -1,26 +1,47 @@
-<div class="container">
-  <div class="profile">
-
-    <h2>My Profile</h2>
-    <div class="profile-img">
-    <% unless @user.photo.attachment.nil? %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill %>
-    <% end %>
-    </div>
-    <div class="profile-description-box">
-        <p>Full name</p>
-        <p><strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-        <p>Discipline</p>
-        <p><strong><%= @user.discipline %></strong></p>
-        <p>Skill Level</p>
-        <p><strong><%= @user.skill_level %></strong></p>
-        <%= link_to "Edit profile", edit_user_registration_path, class: "btn-profile-edit" %>
+<div class="container-banner">
+  <div class="profile-banner">
+    <div class="container">
+      <h1>My Profile</h1>
     </div>
   </div>
+</div>
+<div class="container">
+  <div class="profile">
+    <% if @user.photo.attachment.nil? %>
+      <%= cl_image_tag "1vl40da6exlw522w0ssf6vojyme4.png", height: 300, width: 300, crop: :fill, class: "img-rounded" %>
+    <% else %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "img-rounded" %>
+    <% end %>
+    <div class="profile-description-box">
+        <p>Full name: <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+        <p>Discipline: <strong><%= @user.discipline %></strong></p>
+        <p>Skill Level: <strong><%= @user.skill_level %></strong></p>
+    </div>
+    <div class="btn-profile">
+      <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka btn-grow" %>
+      <%= link_to "Edit profile", edit_user_registration_path, class: "animation btn-shaka btn-grow" %>
+    </div>
+  </div>
+  <h1>Saved Spots</h1>
   <div class="favourites-box">
-    <h2>Saved Spots</h2>
     <% @favourites.each do |fav| %>
-      <%= fav %>
+    <%= link_to spot_path(fav.spot) do %>
+      <div class="card-favourites">
+        <% if fav.spot.photos.count.eql?(0) %>
+          <%= image_tag "spot-pic.jpg", id: "img-bw" %>
+        <% else %>
+          <% fav.spot.photos.each do |photo| %>
+            <% if photo.eql?(fav.spot.photos.first) %>
+              <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+          <% end %>
+          <% end %>
+        <% end %>
+        <div class="card-fav-infos">
+          <h2><%= fav.spot.name %></h2>
+          <p><%= fav.spot.address %></p>
+        </div>
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

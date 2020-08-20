@@ -1,0 +1,52 @@
+.card-favourites {
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 350px;
+    height: 340px;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.card-favourites:hover {
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+    transition-duration: 1.5s;
+    text-decoration: none;
+    transform: scale(1.1);
+    z-index: 2;
+}
+  
+.card-favourites > img {
+    height: 250px;
+    width: 350px;
+}
+  
+.card-favourites h2 {
+    font-size: 16px;
+    color: rgba(0,0,0,0.7);
+    font-weight: bold;
+    margin: 0;
+}
+
+  
+.card-favourites p {
+    font-size: 12px;
+    color: rgba(0,0,0,0.7);
+    opacity: .7;
+    margin: 0;
+}
+
+.card-favourites a:hover {
+    text-decoration: none;
+}
+  
+.card-favourites .card-fav-infos {
+    padding: 16px;
+    position: relative;
+    top: 7px;
+}
+
+#img-bw {
+    filter: grayscale(100%);
+}

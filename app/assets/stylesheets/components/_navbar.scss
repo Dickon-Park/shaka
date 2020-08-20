@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +9,27 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-family: "nunito";
+  font-size: 12px;
+  font-style: bold;
+  position: absolute;
+  top: 49px;
+  left: 22px;
+  opacity: .7;
+}
+
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar-home .navbar-link {
+  color: rgb(255, 255, 255)
 }

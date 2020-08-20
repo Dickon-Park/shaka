@@ -1,11 +1,35 @@
-.banner {
+.home-banner {
   height: 100vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background3.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background.jpg");
   background-size: cover;
   background-position: center;
+  padding-top: 20vh;
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: white;
+    opacity: .9;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+}
+
+.profile-banner {
+  height: 360px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url("background2.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-top: 16vh;
   h1 {
     color: white;
     font-weight: bold;
@@ -18,7 +42,25 @@
     font-weight: lighter;
     margin-bottom: 30px;
   }
-  .btn {
-    padding: 15px 50px;
+}
+
+.container-banner{
+  margin: 0;
+}
+
+.form-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.78)), image-url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  p {
+    color: white;
+    opacity: .9;
+    font-size: 25px;
+    font-weight: lighter;
   }
 }
