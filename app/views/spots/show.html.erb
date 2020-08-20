@@ -1,41 +1,4 @@
 <div class="container">
-<<<<<<< HEAD
-  <h1> checkout the spot </h1>
-  <div class="spot-imgs">
-    <% @spot.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  </div>
-  <div class="spot-description">
-    <h2> <%= @spot.name %> </h2>
-
-    <p> <%= @spot.latitude %>, <%= @spot.longitude %> </p>
-
-    <% if @my_favourite %>
-      <%= link_to favourite_path(@my_favourite), method: :delete do %>
-        <i class="fas fa-heart"></i>
-      <% end %>
-    <% else %>
-      <%= link_to spot_favourites_path(@spot), method: :post do %>
-        <i class="far fa-heart"></i>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="spot-links">
-    <%= link_to 'Edit', edit_spot_path(@spot) %> |
-    <%= link_to 'Back', spots_path %>
-  </div>
-  <div id="reviews">
-  <h2>
-    <%= pluralize @spot.reviews.size, "review" %>
-  </h2>
-    <div class="reviews-form">
-      <div class="col-sm-3">
-        <%= simple_form_for [ @spot, @review ] do |f| %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-          <%= f.input :message %>
-          <%= f.submit "Submit review", class: "btn btn-primary" %>
-=======
   <div class="cards">
     <div class="card">
       <div class="spot-description">
@@ -72,7 +35,6 @@
         <p><%= @spot.latitude %>, <%= @spot.longitude %></p>
         <% @spot.disciplines.each do |discipline| %>
           <%= discipline %> |
->>>>>>> a5bb263c073cfa9d5d8facccf40158268206bb46
         <% end %>
         <p><%= @spot.description %></p>
       </div>
@@ -165,17 +127,4 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
-    <div class="amenities-form">
-      <div class="col-sm-3">
-        <h2>Add some amenities</h2>
-        <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
-
-        <div class="amenities-list">
-          <%= @spot.amenities %>
-        </div>
-      </div>
-    </div>
-=======
->>>>>>> a5bb263c073cfa9d5d8facccf40158268206bb46
 </div>
