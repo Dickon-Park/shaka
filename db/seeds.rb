@@ -6,10 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-p spot = Spot.create!(
-    name: "Brouwersdam",
-    skill_level: "beginner",
-    disciplines: ["Windsurfing", "Kite surfing"],
-    address: "Ouddorp, Netherlands",
-    description: "super flat water"
-)
+# p spot = Spot.create!(
+#     name: "Brouwersdam",
+#     skill_level: "beginner",
+#     disciplines: ["Windsurfing", "Kite surfing"],
+#     address: "Ouddorp, Netherlands",
+#     description: "super flat water"
