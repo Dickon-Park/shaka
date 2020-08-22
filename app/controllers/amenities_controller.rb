@@ -11,7 +11,7 @@ class AmenitiesController < ApplicationController
   private
 
   def amenity_params
-    params.require(:amenity).permit(:category, :description, :longitude, :latitude, status: 'updated')
+    params.require(:amenity).permit(:category, :description, status: 'updated')
   end
 
 end
