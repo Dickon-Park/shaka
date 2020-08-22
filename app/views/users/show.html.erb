@@ -22,26 +22,28 @@
       <%= link_to "Edit profile", edit_user_registration_path, class: "animation btn-shaka btn-grow" %>
     </div>
   </div>
-  <h1>Saved Spots</h1>
-  <div class="favourites-box">
-    <% @favourites.each do |fav| %>
-    <%= link_to spot_path(fav.spot) do %>
-      <div class="card-favourites">
-        <% if fav.spot.photos.count.eql?(0) %>
-          <%= image_tag "spot-pic.jpg", id: "img-bw" %>
-        <% else %>
-          <% fav.spot.photos.each do |photo| %>
-            <% if photo.eql?(fav.spot.photos.first) %>
-              <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+  <div class="saved-spots">
+    <h1>Saved Spots</h1>
+    <div class="favourites-box">
+      <% @favourites.each do |fav| %>
+      <%= link_to spot_path(fav.spot) do %>
+        <div class="card-favourites">
+          <% if fav.spot.photos.count.eql?(0) %>
+            <%= image_tag "spot-pic.jpg", id: "img-bw" %>
+          <% else %>
+            <% fav.spot.photos.each do |photo| %>
+              <% if photo.eql?(fav.spot.photos.first) %>
+                <%= cl_image_tag photo.key, height: 250, width: 350, crop: :fill %>
+            <% end %>
+            <% end %>
           <% end %>
-          <% end %>
-        <% end %>
-        <div class="card-fav-infos">
-          <h2><%= fav.spot.name %></h2>
-          <p><%= fav.spot.address %></p>
+          <div class="card-fav-infos">
+            <h2><%= fav.spot.name %></h2>
+            <p><%= fav.spot.address %></p>
+          </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
