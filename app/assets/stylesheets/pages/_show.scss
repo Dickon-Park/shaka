@@ -66,3 +66,36 @@
     filter: grayscale(100%);
 }
 
+.card-sm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    margin: 16px 0;
+    padding: 16px 0;
+}
+
+.head-review {
+    display: flex;
+}
+
+.user-desc {
+    margin-left: 5px;
+}
+
+.rating-review {
+    color: #FFDE59;
+    opacity: .9;
+}
+
+.amenities {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    margin: 16px 0;
+    padding: 16px 0;
+}
