@@ -116,31 +116,6 @@
       </div>
     </div>
     <div class="card">
-<<<<<<< HEAD
-      <div class= "amenity">
-        <div class="amenities-box">
-          <% @spot.amenities.each do |amenity| %>
-            <% if amenity.category.eql?("Toilet") %>
-                <i class="fas fa-toilet"></i>
-            <% elsif amenity.category.eql?("Kit rental") %>
-                <img src="https://img.icons8.com/ios/30/000000/water-sport-rental.png"/>
-            <% elsif amenity.category.eql?("Restaurant") %>
-                <i class="fas fa-utensils"></i>
-            <% else amenity.category.eql?("Shop") %>
-                <i class="fas fa-store"></i>
-            <% end %>
-            <p><%= amenity.descripton %></p>
-          <% end %>
-        </div>
-      </div>
-      <div class= "amenity">
-        <div class="amenities-form">
-          <div class="col-sm-3">
-            <% if user_signed_in? %>
-              <h3>Add some amenities</h3>
-              <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
-            <% end %>
-=======
       <div class="amenities">
         <% @spot.amenities.each do |amenity| %>
           <div class="amenity">
@@ -158,7 +133,6 @@
             <div class="desc-amenity">
               <p><%= amenity.descripton %></p>
             </div>
->>>>>>> origin/showpage
           </div>
         <% end %>
       </div>

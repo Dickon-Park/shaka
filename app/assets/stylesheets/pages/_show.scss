@@ -79,6 +79,10 @@
     padding: 16px 0;
 }
 
+.review {
+    overflow: hidden;
+}
+
 .head-review {
     display: flex;
 }
@@ -92,10 +96,14 @@
     opacity: .9;
 }
 
-.amenities {
+.amenities-box {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     margin: 16px 0;
     padding: 16px 0;
+}
+
+.amenity {
+    overflow: hidden;
 }
