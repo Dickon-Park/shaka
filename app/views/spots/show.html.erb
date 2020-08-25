@@ -85,7 +85,7 @@
               </div>
               <div class="spot-links">
                 <% if @spot.user == current_user %>
-                  <%= link_to spot_amenity_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
+                  <%= link_to amenity_path(amenity), id: "trash-btn", method: :delete, data: { confirm: "Are you sure?" } do %>
                     <i class="fas fa-trash-alt"></i>
                   <% end %>
                 <% end %>
@@ -102,7 +102,7 @@
       </div>
     </div>
     <div class="card">
-      <iframe width="1075" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+      <iframe width="1050" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
     </div>
     <div class="card">
       <h2><%= pluralize @spot.reviews.size, "review" %></h2>
