@@ -35,11 +35,11 @@
           <% if user_signed_in? %>
             <div class="heart-red">
               <% if @my_favourite %>
-                <%= link_to favourite_path(@my_favourite), method: :delete, remote: true do %>
+                <%= link_to favourite_path(@my_favourite), class: "heart-favourite", method: :delete, remote: true do %>
                   <i class="fas fa-heart"></i>
                 <% end %>
               <% else %>
-                <%= link_to spot_favourites_path(@spot), method: :post, remote: true do %>
+                <%= link_to spot_favourites_path(@spot), class: "heart-favourite", method: :post, remote: true do %>
                   <i class="far fa-heart"></i>
                 <% end %>
               <% end %>
