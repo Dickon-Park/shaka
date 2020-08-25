@@ -1,7 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 
-
-
 const buildMap = () => {
   const mapElement = document.getElementById('map');
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;

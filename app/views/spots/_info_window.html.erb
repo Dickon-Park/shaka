@@ -34,7 +34,7 @@
           <% spot.reviews.average(:rating).to_i.times do  %>
             <span><i class="fas fa-star"></i></span>
           <% end %>
-          (<%= spot.reviews.average(:rating).round(2) %>)
+          <%= spot.reviews.average(:rating).round(1) %> (<%= spot.reviews.length %> reviews)
         </div>
       <% end %>
       <%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %>

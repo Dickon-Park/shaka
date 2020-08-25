@@ -26,7 +26,6 @@ class SpotsController < ApplicationController
 
     def create
         @spot = Spot.new(spot_params)
-        puts @spot 
         @spot.user = current_user
         if @spot.save
             redirect_to spot_path(@spot), notice: 'Spot was successfully created'
