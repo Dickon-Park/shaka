@@ -48,7 +48,7 @@ gem 'cloudinary', '~> 1.12.0'
 
 gem 'geocoder'
 
-
+gem 'sass-mediaqueries-rails'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
