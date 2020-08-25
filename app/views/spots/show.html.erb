@@ -62,6 +62,46 @@
       </div>
     </div>
     <div class="card">
+      <h2><%= pluralize @spot.amenities.size, "amenities" %></h2>
+      <% if @spot.amenities.blank? %>
+        <p>No amenity available</p>
+      <% else %>
+        <div class="amenities-box">
+          <% @spot.amenities.each do |amenity| %>
+            <div class="amenity">
+              <div class="head-amenity">
+                <% if amenity.category.eql?("Toilet") %>
+                    <i class="fas fa-toilet"></i> <strong><%= amenity.category %></strong>
+                <% elsif amenity.category.eql?("Kit rental") %>
+                    <i class="fas fa-receipt"></i> <strong><%= amenity.category %></strong>
+                <% elsif amenity.category.eql?("Restaurant") %>
+                    <i class="fas fa-utensils"></i> <strong><%= amenity.category %></strong>
+                <% else amenity.category.eql?("Shop") %> 
+                    <i class="fas fa-store"></i> <strong><%= amenity.category %></strong>
+                <% end %>
+              </div>
+              <div class="desc-amenity">
+                <p><%= amenity.descripton %></p>
+              </div>
+              <div class="spot-links">
+                <% if @spot.user == current_user %>
+                  <%= link_to spot_amenity_path(@spot), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="amenities-form">
+        <% if @spot.user == current_user %>
+          <h3>Add some amenities</h3>
+          <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="card">
       <iframe width="1075" height="450" src="https://embed.windy.com/embed2.html?lat=<%= @spot.latitude %>&lon=<%= @spot.longitude %>&detailLat=<%= @spot.latitude %>&detailLon=<%= @spot.longitude %>&width=650&height=450&zoom=9&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=true&metricWind=kt&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
     </div>
     <div class="card">
@@ -73,7 +113,7 @@
           <span>Average: <% @spot.reviews.average(:rating).to_i.times do  %>
             <i class="fas fa-star"></i></span>
           <% end %>
-          <%= @spot.reviews.average(:rating).round(2) %> (<%= @spot.reviews.length %> reviews)
+          <%= @spot.reviews.average(:rating).round(1) %> (<%= @spot.reviews.length %> reviews)
         </div>
         <div class="reviews">
           <% @spot.reviews.reverse.each do |review| %>
@@ -100,7 +140,9 @@
             </div>
           <% end %>
         </div>
-        <button class="animation btn-shaka" id="load-more">Load More</button>
+        <div class="load-more-btn">
+          <button class="animation btn-shaka btn-grow" id="load-more">Load More</button>
+        </div>
       <% end %>
       <div class="reviews-form">
         <% if user_signed_in? %>
@@ -112,39 +154,6 @@
           <% end %>
           <% else %>
             <p>You need to <%= link_to "log in", new_user_session_path %> to leave a review</p>
-        <% end %>
-      </div>
-    </div>
-    <div class="card">
-      <h2><%= pluralize @spot.amenities.size, "amenities" %></h2>
-      <% if @spot.amenities.blank? %>
-        <p>No amenity available</p>
-      <% else %>
-        <div class="amenities-box">
-          <% @spot.amenities.each do |amenity| %>
-            <div class="amenity">
-              <div class="head-amenity">
-                <% if amenity.category.eql?("Toilet") %>
-                    <i class="fas fa-toilet"></i> <strong><%= amenity.category %></strong>
-                <% elsif amenity.category.eql?("Kit rental") %>
-                    <i class="fas fa-receipt"></i> <strong><%= amenity.category %></strong>
-                <% elsif amenity.category.eql?("Restaurant") %>
-                    <i class="fas fa-utensils"></i> <strong><%= amenity.category %></strong>
-                <% else amenity.category.eql?("Shop") %> 
-                    <i class="fas fa-store"></i> <strong><%= amenity.category %></strong>
-                <% end %>
-              </div>
-              <div class="desc-amenity">
-                <p><%= amenity.descripton %></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-      <div class="amenities-form">
-        <% if @spot.user == current_user %>
-          <h3>Add some amenities</h3>
-          <%= render partial: "amenities/amenityform", locals: {amenity: @amenity, spot: @spot} %>
         <% end %>
       </div>
     </div>
