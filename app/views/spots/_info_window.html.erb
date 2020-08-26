@@ -1,42 +1,42 @@
 <div class="info-window">
-  <div class="spot-info">
-      <% if spot.photos.count.eql?(0) %>
-        <%= image_tag "spot-pic.jpg", class: "info-img", id: "img-bw" %>
-      <% else %>
-          <% spot.photos.each do |photo| %>
-          <% if photo.eql?(spot.photos.first) %>
-            <%= cl_image_tag photo.key, width: 200, crop: :fill, class: "info-img" %>
+  <%= link_to spot_path(spot) do %>
+    <div class="spot-info">
+        <% if spot.photos.count.eql?(0) %>
+          <%= image_tag "spot-pic.jpg", class: "info-img", id: "img-bw" %>
+        <% else %>
+            <% spot.photos.each do |photo| %>
+            <% if photo.eql?(spot.photos.first) %>
+              <%= cl_image_tag photo.key, width: 200, crop: :fill, class: "info-img" %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-      <h2><%= spot.name %></h2>
-      <p><%= spot.address %></p>
-      <p><%= spot.description %></p>
-      <p><%= spot.skill_level %></p>
-      <% spot.disciplines.each do |discipline| %>
-        <span><%= discipline %></span> | 
-      <% end %>
-      <div class="amenities">
-          <% spot.amenities.each do |amenity| %>
-              <% if amenity.category.eql?("Toilet") %>
-                  <i class="fas fa-toilet"></i>
-              <% elsif amenity.category.eql?("Kit rental") %>
-                  <img src="https://img.icons8.com/ios/30/000000/water-sport-rental.png"/>
-              <% elsif amenity.category.eql?("Restaurant") %>
-                  <i class="fas fa-utensils"></i>
-              <% else amenity.category.eql?("Shop") %>
-                  <i class="fas fa-store"></i>
-              <% end %>
-          <% end %>
-      </div>
-      <% if spot.reviews.count >= 1 %>
-        <div class="reviews-avg">
-          <% spot.reviews.average(:rating).to_i.times do  %>
-            <span><i class="fas fa-star"></i></span>
-          <% end %>
-          <%= spot.reviews.average(:rating).round(1) %> (<%= spot.reviews.length %> reviews)
+        <h4><%= spot.name %></h4>
+        <p><%= spot.address %></p>
+        <p><%= spot.skill_level %></p>
+        <% spot.disciplines.each do |discipline| %>
+          <span><%= discipline %></span> | 
+        <% end %>
+        <div class="amenities">
+            <% spot.amenities.each do |amenity| %>
+                <% if amenity.category.eql?("Toilet") %>
+                    <i class="fas fa-toilet"></i>
+                <% elsif amenity.category.eql?("Kit rental") %>
+                    <img id="kit-rental" src="https://img.icons8.com/ios/30/000000/water-sport-rental.png"/>
+                <% elsif amenity.category.eql?("Restaurant") %>
+                    <i class="fas fa-utensils"></i>
+                <% else amenity.category.eql?("Shop") %>
+                    <i class="fas fa-store"></i>
+                <% end %>
+            <% end %>
         </div>
-      <% end %>
-      <%= link_to spot.name, spot_path(spot), class: "btn btn-danger" %>
-  </div>
+        <% if spot.reviews.count >= 1 %>
+          <div class="reviews-avg">
+            <% spot.reviews.average(:rating).to_i.times do  %>
+              <span><i class="fas fa-star"></i></span>
+            <% end %>
+            <%= spot.reviews.average(:rating).round(1) %>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
 </div>
