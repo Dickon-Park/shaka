@@ -1,6 +1,6 @@
 .form-login {
     background: white;
-    width: 25%;
+    width: 380px;
     margin: 0 auto;
     margin-top: 140px;
     margin-bottom: 76px;
@@ -17,6 +17,39 @@
       width: 100%;
       margin-bottom: 20px
     }
+}
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-edit {
+  background: white;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 140px;
+  margin-bottom: 76px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px
+  }
+}
+
+.container-edit {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .form-row {
