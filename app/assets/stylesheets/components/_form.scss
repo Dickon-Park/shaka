@@ -52,8 +52,9 @@
   min-height: 100vh;
 }
 
-.form-row {
-  margin-right: 0;
+.spot-container {
+  display: flex;
+  align-items: center;
 }
 .spot-form {
     background: white;
@@ -83,4 +84,18 @@
 
 .amenities-form {
   width: 300px;
+}
+
+@media(max-width: 992px) {
+  .spot-container {
+      display: flex;
+      align-items: center;
+  }
+}
+
+@media(max-width: 768px) {
+  .spot-container {
+    display: flex;
+    align-items: center;
+  }
 }
