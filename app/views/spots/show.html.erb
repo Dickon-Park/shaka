@@ -122,7 +122,11 @@
             <div class="review">
               <div class="head-review">
                 <div class="user-img">
-                  <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+                  <% if review.user.photo.attachment.nil? %>
+                    <%= cl_image_tag "1vl40da6exlw522w0ssf6vojyme4.png", class: "avatar" %>
+                  <% else %>
+                    <%= cl_image_tag review.user.photo.key, class: "avatar" %>
+                  <% end %>
                 </div>
                 <div class="user-desc">
                   <strong><%= review.user.first_name %></strong>
