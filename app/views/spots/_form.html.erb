@@ -1,19 +1,17 @@
-<div class="container">
-  <div class="form-row">
-    <div class="spot-form">
-      <h2>Tag a spot</h2>
-      <%= simple_form_for(spot) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :skill_level, 
-                    collection: ["Easy", "Medium", "Hard", "Pro"], 
-                    label: "skill level", 
-                    required: true %>
-        <%= f.input :disciplines, as: :check_boxes, collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], label: "Disciplines", include_blank: false, include_hidden: false %>
-        <%= f.input :description %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload photos' %>
-        <%= f.button :submit, class: "btn btn-danger" %>
-      <% end %>
-    </div>
+<div class="spot-container">
+  <div class="spot-form">
+    <h2>Tag a spot</h2>
+    <%= simple_form_for(spot) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :skill_level, 
+                  collection: ["Easy", "Medium", "Hard", "Pro"], 
+                  label: "skill level", 
+                  required: true %>
+      <%= f.input :disciplines, as: :check_boxes, collection: ["Kite boating", "Kite surfing", "Land sailing", "Sailing", "Windsurfing"], label: "Disciplines", include_blank: false, include_hidden: false %>
+      <%= f.input :description %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload photos' %>
+      <%= f.button :submit, class: "btn btn-danger" %>
+    <% end %>
   </div>
 </div>

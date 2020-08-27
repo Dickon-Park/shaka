@@ -3,11 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-width: 100vw;
     height: 100px;
     width: 100vw;
     padding: 0px 50px;
     color: rgba(0,0,0,0.3);
 }
+
+.container-footer {
+    min-width: 100vw;
+}
+
 .footer-links {
     display: flex;
     align-items: center;
@@ -39,4 +45,17 @@
 }
 .info a:hover {
     opacity: 1;
+}
+
+@media(max-width: 992px) {
+    .footer {
+      flex-direction: column;
+    }
+
+}
+
+@media(max-width: 768px) {
+    .favourites-box {
+        flex-direction: column;
+    }
 }

@@ -8,9 +8,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to "All spots", spots_path, class: "nav-link" %>
-      </li>
+      <div class="btn-home">
+        <%= link_to "All spots", spots_path, class: "animation btn-shaka btn-grow" %>
+      </div>
       <% if user_signed_in? %>
         <div class="btn-home">
           <%= link_to "Find me a spot", spots_path(params: {skill_discipline: true}), class: "animation btn-shaka btn-grow" %>
@@ -29,11 +29,11 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
         <div class="btn-home">
           <%= link_to "Create your profile", new_user_registration_path, class: "animation btn-shaka btn-grow" %>
+        </div>
+        <div class="btn-home">
+          <%= link_to "Login", new_user_session_path, class: "animation btn-shaka btn-grow" %>
         </div>
       <% end %>
     </ul>

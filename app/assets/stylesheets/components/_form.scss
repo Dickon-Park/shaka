@@ -1,6 +1,6 @@
 .form-login {
     background: white;
-    width: 40%;
+    width: 380px;
     margin: 0 auto;
     margin-top: 140px;
     margin-bottom: 76px;
@@ -19,6 +19,43 @@
     }
 }
 
+.container-login {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form-edit {
+  background: white;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 140px;
+  margin-bottom: 76px;
+  padding: 10px 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px
+  }
+}
+
+.container-edit {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.spot-container {
+  display: flex;
+  align-items: center;
+}
 .spot-form {
     background: white;
     width: 450px;
@@ -47,4 +84,18 @@
 
 .amenities-form {
   width: 300px;
+}
+
+@media(max-width: 992px) {
+  .spot-container {
+      display: flex;
+      align-items: center;
+  }
+}
+
+@media(max-width: 768px) {
+  .spot-container {
+    display: flex;
+    align-items: center;
+  }
 }
