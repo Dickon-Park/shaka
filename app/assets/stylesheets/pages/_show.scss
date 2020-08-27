@@ -126,6 +126,13 @@
     width: 25px;
 }
 
+#windy {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
 @media(max-width: 992px) {
     .favourites-box {
       grid-template-columns: 1fr 1fr;
@@ -136,6 +143,12 @@
         align-items: center;
     }
 
+    #windy {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
 }
 
 @media(max-width: 768px) {
@@ -154,11 +167,15 @@
         text-align: center;
     }
 
-    .windy {
+    #windy {
         flex-direction: column;
         align-items: center;
-        width: 25%;
-    
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .reviews {
+        grid-template-columns: 1fr;
     }
 }
 
